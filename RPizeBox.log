@@ -1,255 +1,131 @@
-11/17/2013 12:12:44 PM pylms directory: /home/pi/RPizeBox/pylms
-11/17/2013 12:21:25 PM Logged in to LMS = True
-11/17/2013 12:23:46 PM Logged in to LMS = True
-11/17/2013 12:25:50 PM Logged in to LMS!
-11/17/2013 12:27:58 PM Logged in to LMS!
-11/17/2013 12:29:35 PM Logged in to LMS!
-11/17/2013 12:31:41 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:31:44 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:31:48 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:31:51 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:31:54 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:31:57 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:00 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:03 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:06 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:09 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:12 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:15 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:18 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:21 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:24 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:32:31 PM Logged in to LMS!
-11/17/2013 12:34:10 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:34:13 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:34:16 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:34:19 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:34:22 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:34:25 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:34:28 PM LMS not there.  Trying again in 3 seconds.
-11/17/2013 12:47:55 PM Logged in to LMS.
-11/17/2013 12:47:55 PM Logged in to player.
-11/17/2013 12:48:24 PM Logged in to LMS.
-11/17/2013 12:48:24 PM Logged in to player.
-11/17/2013 12:48:42 PM SkipForward
-11/17/2013 12:51:50 PM Logged in to LMS.
-11/17/2013 12:51:50 PM Logged in to player.
-11/17/2013 12:51:56 PM SkipForward
-11/17/2013 12:52:01 PM SkipBackward
-11/17/2013 12:59:35 PM Logged in to LMS.
-11/17/2013 12:59:35 PM Logged in to player.
-11/17/2013 12:59:38 PM SkipForward
-11/17/2013 01:04:23 PM Logged in to LMS.
-11/17/2013 01:04:23 PM Logged in to player.
-11/17/2013 01:08:18 PM Logged in to LMS.
-11/17/2013 01:08:18 PM Logged in to player.
-11/17/2013 01:09:23 PM Logged in to LMS.
-11/17/2013 01:09:23 PM Logged in to player.
-11/17/2013 01:10:26 PM Logged in to LMS.
-11/17/2013 01:10:26 PM Logged in to player.
-11/17/2013 01:10:26 PM Elapsed time: 0.000025
-11/17/2013 01:10:27 PM Elapsed time: 0.000021
-11/17/2013 01:10:27 PM Elapsed time: 0.000020
-11/17/2013 01:10:27 PM Elapsed time: 0.000021
-11/17/2013 01:10:27 PM Elapsed time: 0.000020
-11/17/2013 01:10:27 PM Elapsed time: 0.000021
-11/17/2013 01:10:27 PM Elapsed time: 0.000021
-11/17/2013 01:10:27 PM Elapsed time: 0.000021
-11/17/2013 01:10:27 PM Elapsed time: 0.000021
-11/17/2013 01:10:28 PM Elapsed time: 0.000021
-11/17/2013 01:10:28 PM Elapsed time: 0.000023
-11/17/2013 01:10:28 PM Elapsed time: 0.000022
-11/17/2013 01:10:28 PM Elapsed time: 0.000023
-11/17/2013 01:10:28 PM Elapsed time: 0.000024
-11/17/2013 01:10:28 PM Elapsed time: 0.000022
-11/17/2013 01:10:28 PM Elapsed time: 0.000022
-11/17/2013 01:10:28 PM Elapsed time: 0.000022
-11/17/2013 01:10:29 PM Elapsed time: 0.000021
-11/17/2013 01:10:29 PM Elapsed time: 0.000024
-11/17/2013 01:10:29 PM Elapsed time: 0.000021
-11/17/2013 01:10:30 PM Elapsed time: 0.000021
-11/17/2013 01:10:30 PM Elapsed time: 0.000021
-11/17/2013 01:10:30 PM Elapsed time: 0.000021
-11/17/2013 01:10:30 PM Elapsed time: 0.000021
-11/17/2013 01:11:07 PM Logged in to LMS.
-11/17/2013 01:11:07 PM Logged in to player.
-11/17/2013 01:11:07 PM Elapsed time: 0.000041
-11/17/2013 01:11:07 PM Elapsed time: 0.118595
-11/17/2013 01:11:07 PM Elapsed time: 0.237141
-11/17/2013 01:11:07 PM Elapsed time: 0.360053
-11/17/2013 01:11:07 PM Elapsed time: 0.486732
-11/17/2013 01:11:08 PM Elapsed time: 0.613057
-11/17/2013 01:11:08 PM Elapsed time: 0.730793
-11/17/2013 01:11:08 PM Elapsed time: 0.850162
-11/17/2013 01:11:08 PM Elapsed time: 0.968866
-11/17/2013 01:11:08 PM Elapsed time: 1.087616
-11/17/2013 01:11:08 PM Elapsed time: 1.246204
-11/17/2013 01:11:08 PM Elapsed time: 1.364479
-11/17/2013 01:11:08 PM Elapsed time: 1.482396
-11/17/2013 01:11:09 PM Elapsed time: 1.637849
-11/17/2013 01:11:09 PM Elapsed time: 1.756278
-11/17/2013 01:11:09 PM Elapsed time: 1.873825
-11/17/2013 01:11:09 PM Elapsed time: 2.018526
-11/17/2013 01:11:09 PM Elapsed time: 2.161748
-11/17/2013 01:11:09 PM Elapsed time: 2.279640
-11/17/2013 01:11:09 PM Elapsed time: 2.407026
-11/17/2013 01:11:10 PM Elapsed time: 2.573409
-11/17/2013 01:11:10 PM Elapsed time: 2.700739
-11/17/2013 01:11:10 PM Elapsed time: 2.819698
-11/17/2013 01:11:10 PM Elapsed time: 2.962939
-11/17/2013 01:11:10 PM Elapsed time: 3.080924
-11/17/2013 01:11:10 PM Elapsed time: 3.199250
-11/17/2013 01:11:10 PM Elapsed time: 3.317760
-11/17/2013 01:11:10 PM Elapsed time: 3.485592
-11/17/2013 01:11:11 PM Elapsed time: 3.603535
-11/17/2013 01:11:11 PM Elapsed time: 3.964615
-11/17/2013 01:11:11 PM Elapsed time: 4.126680
-11/17/2013 01:11:11 PM Elapsed time: 4.245259
-11/17/2013 01:11:11 PM Elapsed time: 4.372365
-11/17/2013 01:11:11 PM Elapsed time: 4.492427
-11/17/2013 01:11:12 PM Elapsed time: 4.610903
-11/17/2013 01:11:12 PM Elapsed time: 4.736054
-11/17/2013 01:11:12 PM Elapsed time: 4.853582
-11/17/2013 01:11:12 PM Elapsed time: 4.971982
-11/17/2013 01:11:12 PM Elapsed time: 5.089797
-11/17/2013 01:11:12 PM Elapsed time: 5.214962
-11/17/2013 01:11:12 PM Elapsed time: 5.332536
-11/17/2013 01:11:12 PM Elapsed time: 5.452778
-11/17/2013 01:11:13 PM Elapsed time: 5.570522
-11/17/2013 01:11:13 PM Elapsed time: 5.688510
-11/17/2013 01:11:13 PM Elapsed time: 5.806818
-11/17/2013 01:11:13 PM Elapsed time: 5.925366
-11/17/2013 01:11:13 PM Elapsed time: 6.043243
-11/17/2013 01:11:13 PM Elapsed time: 6.161396
-11/17/2013 01:11:13 PM Elapsed time: 6.279744
-11/17/2013 01:11:13 PM Elapsed time: 6.411012
-11/17/2013 01:11:14 PM Elapsed time: 6.539189
-11/17/2013 01:11:14 PM Elapsed time: 6.664965
-11/17/2013 01:11:14 PM Elapsed time: 6.783233
-11/17/2013 01:11:14 PM Elapsed time: 6.901098
-11/17/2013 01:11:14 PM Elapsed time: 7.024528
-11/17/2013 01:11:14 PM Elapsed time: 7.142708
-11/17/2013 01:11:14 PM Elapsed time: 7.259892
-11/17/2013 01:11:14 PM Elapsed time: 7.378309
-11/17/2013 01:11:14 PM Elapsed time: 7.496511
-11/17/2013 01:11:15 PM Elapsed time: 7.619035
-11/17/2013 01:11:15 PM Elapsed time: 7.737573
-11/17/2013 01:11:15 PM Elapsed time: 7.855827
-11/17/2013 01:11:15 PM Elapsed time: 7.973570
-11/17/2013 01:11:15 PM Elapsed time: 8.092179
-11/17/2013 01:11:15 PM Elapsed time: 8.210000
-11/17/2013 01:11:15 PM Elapsed time: 8.342645
-11/17/2013 01:11:15 PM Elapsed time: 8.460933
-11/17/2013 01:11:16 PM Elapsed time: 8.590067
-11/17/2013 01:11:16 PM Elapsed time: 8.712581
-11/17/2013 01:11:16 PM Elapsed time: 8.836915
-11/17/2013 01:11:16 PM Elapsed time: 8.954895
-11/17/2013 01:11:16 PM Elapsed time: 9.072467
-11/17/2013 01:12:11 PM Logged in to LMS.
-11/17/2013 01:12:11 PM Logged in to player.
-11/17/2013 01:12:11 PM Elapsed time: 0.000038
-11/17/2013 01:12:11 PM Elapsed time: 0.119716
-11/17/2013 01:12:11 PM Elapsed time: 0.240432
-11/17/2013 01:12:11 PM Elapsed time: 0.359531
-11/17/2013 01:12:11 PM Elapsed time: 0.477519
-11/17/2013 01:12:11 PM Elapsed time: 0.595665
-11/17/2013 01:12:12 PM Elapsed time: 0.713899
-11/17/2013 01:12:12 PM Elapsed time: 0.834405
-11/17/2013 01:12:12 PM Elapsed time: 0.952112
-11/17/2013 01:12:12 PM Elapsed time: 1.070155
-11/17/2013 01:12:12 PM Elapsed time: 1.188256
-11/17/2013 01:12:12 PM Elapsed time: 1.306392
-11/17/2013 01:12:12 PM Elapsed time: 1.424415
-11/17/2013 01:12:12 PM Elapsed time: 1.542124
-11/17/2013 01:12:12 PM Elapsed time: 1.660101
-11/17/2013 01:12:13 PM Elapsed time: 1.778466
-11/17/2013 01:12:13 PM Elapsed time: 1.896484
-11/17/2013 01:12:13 PM Elapsed time: 2.491089
-11/17/2013 01:12:13 PM Elapsed time: 2.608964
-11/17/2013 01:12:14 PM Elapsed time: 2.729758
-11/17/2013 01:12:14 PM Elapsed time: 2.847871
-11/17/2013 01:12:14 PM Elapsed time: 2.966194
-11/17/2013 01:12:14 PM Elapsed time: 3.083873
-11/17/2013 01:12:14 PM Elapsed time: 3.201373
-11/17/2013 01:12:14 PM Elapsed time: 3.319432
-11/17/2013 01:12:14 PM Elapsed time: 3.465937
-11/17/2013 01:12:14 PM Elapsed time: 3.583635
-11/17/2013 01:12:15 PM Elapsed time: 3.701089
-11/17/2013 01:12:15 PM Elapsed time: 3.856794
-11/17/2013 01:12:15 PM Elapsed time: 3.975440
-11/17/2013 01:12:15 PM Elapsed time: 4.102474
-11/17/2013 01:12:15 PM Elapsed time: 4.270547
-11/17/2013 01:12:15 PM Elapsed time: 4.394319
-11/17/2013 01:12:15 PM Elapsed time: 4.512079
-11/17/2013 01:12:15 PM Elapsed time: 4.655578
-11/17/2013 01:12:16 PM Elapsed time: 4.773881
-11/17/2013 01:12:16 PM Elapsed time: 4.891617
-11/17/2013 01:12:16 PM Elapsed time: 5.034817
-11/17/2013 01:12:16 PM Elapsed time: 5.153120
-11/17/2013 01:12:16 PM Elapsed time: 5.270928
-11/17/2013 01:12:16 PM Elapsed time: 5.412105
-11/17/2013 01:12:16 PM Elapsed time: 5.530014
-11/17/2013 01:12:16 PM Elapsed time: 5.648581
-11/17/2013 01:12:17 PM Elapsed time: 5.791020
-11/17/2013 01:12:17 PM Elapsed time: 5.908197
-11/17/2013 01:12:17 PM Elapsed time: 6.031534
-11/17/2013 01:12:17 PM Elapsed time: 6.158188
-11/17/2013 01:12:17 PM Elapsed time: 6.320957
-11/17/2013 01:12:17 PM Elapsed time: 6.439092
-11/17/2013 01:12:17 PM Elapsed time: 6.557339
-11/17/2013 01:12:18 PM Elapsed time: 6.699897
-11/17/2013 01:12:18 PM Elapsed time: 6.817624
-11/17/2013 01:12:18 PM Elapsed time: 6.935963
-11/17/2013 01:12:18 PM Elapsed time: 7.498165
-11/17/2013 01:12:18 PM Elapsed time: 7.616305
-11/17/2013 01:12:19 PM Elapsed time: 7.734118
-11/17/2013 01:12:19 PM Elapsed time: 7.879503
-11/17/2013 01:12:19 PM Elapsed time: 8.008216
-11/17/2013 01:12:19 PM Elapsed time: 8.132650
-11/17/2013 01:12:19 PM Elapsed time: 8.293136
-11/17/2013 01:12:19 PM Elapsed time: 8.410730
-11/17/2013 01:12:19 PM Elapsed time: 8.528361
-11/17/2013 01:12:19 PM Elapsed time: 8.670757
-11/17/2013 01:12:20 PM Elapsed time: 8.788300
-11/17/2013 01:12:20 PM Elapsed time: 8.906312
-11/17/2013 01:12:20 PM Elapsed time: 9.049291
-11/17/2013 01:12:20 PM Elapsed time: 0.100328
-11/17/2013 01:12:20 PM Elapsed time: 0.218078
-11/17/2013 01:12:20 PM Elapsed time: 0.336221
-11/17/2013 01:12:20 PM Elapsed time: 0.454068
-11/17/2013 01:12:20 PM Elapsed time: 0.571805
-11/17/2013 01:12:21 PM Elapsed time: 0.688735
-11/17/2013 01:12:21 PM Elapsed time: 0.806768
-11/17/2013 01:12:21 PM Elapsed time: 0.931563
-11/17/2013 01:12:21 PM Elapsed time: 1.051979
-11/17/2013 01:12:21 PM Elapsed time: 1.179045
-11/17/2013 01:12:21 PM Elapsed time: 1.296984
-11/17/2013 01:12:21 PM Elapsed time: 1.414682
-11/17/2013 01:12:21 PM Elapsed time: 1.532232
-11/17/2013 01:12:22 PM Elapsed time: 1.650630
-11/17/2013 01:12:22 PM Elapsed time: 1.768799
-11/17/2013 01:12:22 PM Elapsed time: 1.886963
-11/17/2013 01:12:22 PM Elapsed time: 2.004853
-11/17/2013 01:12:22 PM Elapsed time: 2.122649
-11/17/2013 01:12:22 PM Elapsed time: 2.240667
-11/17/2013 01:12:22 PM Elapsed time: 2.358888
-11/17/2013 01:12:22 PM Elapsed time: 2.477008
-11/17/2013 01:12:23 PM Elapsed time: 2.594677
-11/17/2013 01:12:23 PM Elapsed time: 2.712118
-11/17/2013 01:12:23 PM Elapsed time: 2.830186
-11/17/2013 01:12:23 PM Elapsed time: 2.963532
-11/17/2013 01:12:23 PM Elapsed time: 3.082465
-11/17/2013 01:12:23 PM Elapsed time: 3.201821
-11/17/2013 01:12:23 PM Elapsed time: 3.319587
-11/17/2013 01:12:23 PM Elapsed time: 3.462080
-11/17/2013 01:12:23 PM Elapsed time: 3.579141
-11/17/2013 01:12:24 PM Elapsed time: 3.697101
-11/17/2013 01:12:24 PM Elapsed time: 3.839901
-11/17/2013 01:12:24 PM Elapsed time: 3.958218
-11/17/2013 01:12:24 PM Elapsed time: 4.076751
-11/17/2013 01:12:24 PM Elapsed time: 4.219439
-11/17/2013 01:12:24 PM Elapsed time: 4.337142
-11/17/2013 01:12:24 PM Elapsed time: 4.454831
-11/17/2013 01:12:25 PM Elapsed time: 4.598092
-11/17/2013 01:14:02 PM Logged in to LMS.
-11/17/2013 01:14:02 PM Logged in to player.
+11/17/2013 08:20:26 PM Play
+11/17/2013 08:20:53 PM Track changed, now: Hunter
+11/17/2013 08:22:47 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:22:52 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:23:27 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:23:32 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:23:37 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:23:42 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:23:47 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:23:53 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:23:58 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:24:05 PM Logged in to LMS.
+11/17/2013 08:24:05 PM Logged in to player.
+11/17/2013 08:25:32 PM Play
+11/17/2013 08:27:17 PM Track changed, now: Boulevard Of Broken Dreams
+11/17/2013 08:27:31 PM Vol-
+11/17/2013 08:27:31 PM Volume is: 28
+11/17/2013 08:29:18 PM Logged in to LMS.
+11/17/2013 08:29:18 PM Logged in to player.
+11/17/2013 08:29:18 PM Track changed, now: Boulevard Of Broken Dreams
+11/17/2013 08:29:22 PM Power OFF
+11/17/2013 08:29:26 PM Power ON
+11/17/2013 08:32:25 PM Logged in to LMS.
+11/17/2013 08:32:25 PM Logged in to player.
+11/17/2013 08:32:25 PM Track changed, now: Boulevard Of Broken Dreams
+11/17/2013 08:32:28 PM Power OFF
+11/17/2013 08:33:12 PM Logged in to LMS.
+11/17/2013 08:33:12 PM Logged in to player.
+11/17/2013 08:33:12 PM Track changed, now: Boulevard Of Broken Dreams
+11/17/2013 08:37:00 PM Success: Logged in to LMS.
+11/17/2013 08:37:00 PM Success: In contact with SqueezeLite.
+11/17/2013 08:37:00 PM Track changed, now: Boulevard Of Broken Dreams
+11/17/2013 08:37:35 PM Power ON
+11/17/2013 08:37:38 PM Play
+11/17/2013 08:37:41 PM Vol+
+11/17/2013 08:37:41 PM Volume is: 33
+11/17/2013 08:37:45 PM Vol+
+11/17/2013 08:37:45 PM Volume is: 38
+11/17/2013 08:37:49 PM Vol+
+11/17/2013 08:37:49 PM Volume is: 43
+11/17/2013 08:37:52 PM Vol+
+11/17/2013 08:37:52 PM Volume is: 48
+11/17/2013 08:37:57 PM Vol+
+11/17/2013 08:37:57 PM Volume is: 47
+11/17/2013 08:38:00 PM Vol+
+11/17/2013 08:38:00 PM Volume is: 40
+11/17/2013 08:38:02 PM Vol+
+11/17/2013 08:38:02 PM Volume is: 45
+11/17/2013 08:38:05 PM Vol+
+11/17/2013 08:38:05 PM Volume is: 50
+11/17/2013 08:38:07 PM Vol+
+11/17/2013 08:38:07 PM Volume is: 55
+11/17/2013 08:38:10 PM Vol+
+11/17/2013 08:38:10 PM Volume is: 41
+11/17/2013 08:38:12 PM Vol-
+11/17/2013 08:38:12 PM Volume is: 36
+11/17/2013 08:38:15 PM Vol-
+11/17/2013 08:38:15 PM Volume is: 31
+11/17/2013 08:38:18 PM Vol-
+11/17/2013 08:38:18 PM Volume is: 26
+11/17/2013 08:38:20 PM Vol-
+11/17/2013 08:38:20 PM Volume is: 21
+11/17/2013 08:38:23 PM Vol-
+11/17/2013 08:38:23 PM Volume is: 16
+11/17/2013 08:38:26 PM Vol-
+11/17/2013 08:38:26 PM Volume is: 11
+11/17/2013 08:38:36 PM Success: Logged in to LMS.
+11/17/2013 08:38:36 PM Success: In contact with SqueezeLite.
+11/17/2013 08:38:36 PM Track changed, now: Boulevard Of Broken Dreams
+11/17/2013 08:38:42 PM Vol+
+11/17/2013 08:38:42 PM Volume is: 16
+11/17/2013 08:38:45 PM Vol+
+11/17/2013 08:38:45 PM Volume is: 21
+11/17/2013 08:38:48 PM Vol+
+11/17/2013 08:38:48 PM Volume is: 26
+11/17/2013 08:38:51 PM Vol+
+11/17/2013 08:38:51 PM Volume is: 31
+11/17/2013 08:39:56 PM Track changed, now: All-Nighter
+11/17/2013 08:40:02 PM Success: Logged in to LMS.
+11/17/2013 08:40:02 PM Success: In contact with SqueezeLite.
+11/17/2013 08:40:02 PM Track changed, now: All-Nighter
+11/17/2013 08:41:29 PM Track changed, now: Total Eclipse of the Heart
+11/17/2013 08:41:59 PM Success: Logged in to LMS.
+11/17/2013 08:41:59 PM Success: In contact with SqueezeLite.
+11/17/2013 08:41:59 PM Track changed, now: Total Eclipse of the Heart
+11/17/2013 08:43:27 PM Vol+
+11/17/2013 08:43:27 PM Volume is: 36
+11/17/2013 08:43:29 PM Vol+
+11/17/2013 08:43:29 PM Volume is: 41
+11/17/2013 08:43:31 PM Vol+
+11/17/2013 08:43:31 PM Volume is: 46
+11/17/2013 08:43:33 PM Vol+
+11/17/2013 08:43:33 PM Volume is: 51
+11/17/2013 08:43:39 PM Vol-
+11/17/2013 08:43:39 PM Volume is: 46
+11/17/2013 08:43:44 PM Vol+
+11/17/2013 08:43:44 PM Volume is: 51
+11/17/2013 08:43:56 PM Success: Logged in to LMS.
+11/17/2013 08:43:56 PM Success: In contact with SqueezeLite.
+11/17/2013 08:43:56 PM Track changed, now: Total Eclipse of the Heart
+11/17/2013 08:45:59 PM Track changed, now: Here I Stand Before Me
+11/17/2013 08:47:02 PM Success: Logged in to LMS.
+11/17/2013 08:47:02 PM Success: In contact with SqueezeLite.
+11/17/2013 08:47:02 PM Track changed, now: Here I Stand Before Me
+11/17/2013 08:48:02 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:48:07 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:48:12 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:48:47 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:48:52 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:48:57 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:49:02 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:49:08 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:49:13 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:49:27 PM Success: Logged in to LMS.
+11/17/2013 08:49:27 PM Success: In contact with SqueezeLite.
+11/17/2013 08:50:17 PM Track changed, now: BBC Radio 4
+11/17/2013 08:53:02 PM Success: Logged in to LMS.
+11/17/2013 08:53:02 PM Success: In contact with SqueezeLite.
+11/17/2013 08:53:02 PM Track changed, now: BBC Radio 4
+11/17/2013 08:55:52 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:55:57 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:56:29 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:56:34 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:56:40 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:56:45 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:56:50 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:56:55 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:57:00 PM LMS not there.  Trying again in 5 seconds.
+11/17/2013 08:57:12 PM Success: Logged in to LMS.
+11/17/2013 08:57:12 PM Success: In contact with SqueezeLite.
+11/17/2013 08:57:12 PM Track changed, now: BBC Radio 4

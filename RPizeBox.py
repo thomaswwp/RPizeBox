@@ -27,13 +27,16 @@
 #       - SqueezeLite  (https://code.google.com/p/squeezelite/)
 #       - lirc set up with your remote as the lirc.conf from - http://lirc.sourceforge.net/remotes/
 #
-#
+
 ###################################################################################
 # 
 # This is the code to show the display, check whether the IR has been pressed
 # and see if we need a smooth reboot or shutdown
 #
-# 0.0.1  Initial release, playing around with git
+# 0.0.1     Initial release, playing around with git
+#           Issues:
+#               - lirc remembers two button presses and shows the volume images 
+#               in flashes between the titles
 #
 ###################################################################################
 
@@ -61,20 +64,34 @@ logging.basicConfig(filename=currDir+'/RPizeBox.log',level=logging.DEBUG,format=
 from pylms.server import Server # to talk to LMS server
 from pylms.player import Player # to talk to LMS player
 
+# class to hold all the variables
+class RPizeBox:
+    scrollStepTime = 0.7        # how long to wait between steps when scrolling
+    lastStepTime = 0            # when we last stepped
+    delayOnLoop = 3             # time to wait when back to start on a scroll   
+    scPort = 9090               # default LMS port for CLI
+    scUser = ""                 # CLI user
+    scPassword = ""             # CLI password
+    logInWait = 5               # time in seconds to wait between LMS login attempts
+    loggedin = False            # assume we are not logged in...
+    whatToShow = 0              # 0 = Artist, 1 = Album, 2 = Position/Length
+    bottomLineCycleDelay = 3    # time in seconds for bottom line rotation
+    flashChange = 1.0           # time in seconds to show volume change etc.
+    scrollPosition = 0          # starting position for the scroll
+    current_title = ""          # current_title
+    waitBeforeOffMinutes = 10   # time to wait before going to standby
 
-#login details for the LMS (SqueezeLite)
-scPort = 9090               # default LMS port for CLI
-scUser = ""                 # CLI user
-scPassword = ""             # CLI password
-logInWait = 5               # time in seconds to wait between LMS login attempts
-loggedin = False            # assume we are not logged in...
-whatToShow = 0              # 0 = Artist, 1 = Album, 2 = Position/Length
-bottomLineCycleDelay = 3    # time in seconds for bottom line rotation
+# make an object to hold all these variables.  Not sure why but I suppose it is neater
+RPizeBox = RPizeBox()
+
 
 #for pylirc
+# how long to wait between remote actions, check with console command "top"
+##################################### 
+pylircReadDelay = 0.1               # 0.05 ~ 9% overhead
+##################################### 0.1  ~ 6% overhead
 blocking = 0;                       # no idea what this does, but in the demo code!
 configFile = "/remoteCodes.conf"    # has the codes we'll respond to
-pylircReadDelay = 0.1               # how long to wait between responses
 
 #some messages          = "123456789ABCDEF0"
 welcomeMessage1         = "   Welcome to   "
@@ -114,50 +131,61 @@ def getExternalIP(ifname):
 #######################################################################
 #                                                                     #
 
+######################### reset/reboot button #########################
+# Best used in another script since it takes 30s to initialise
+# 
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
+os.system("python buttonWatch.py &")
 
+
+
+########################### 16 x 2 display ############################
 # set up the 16x2 display - 4 bit to save pins - apparently slower but marginal
 # https://projects.drogon.net/raspberry-pi/wiringpi/lcd-library/
 wp.wiringPiSetup();
 lcd = wp.lcdInit (2, 16, 4,  11,10 , 0,1,2,3,0,0,0,0)
 wp.lcdClear(lcd)		    # clear the lcd
 wp.lcdPosition(lcd, 0, 0)	# cursor to start of row
-    
+
+################################# LMS ################################    
 # connect to the LMS
-sc = Server(hostname=getExternalIP("eth0"), port=scPort, username=scUser, password=scPassword)
+sc = Server(hostname=getExternalIP("eth0"), port=RPizeBox.scPort, username=RPizeBox.scUser, password=RPizeBox.scPassword)
     
 # log in to the LMS server - can't do much until that has happened.
-while loggedin != True:
+while RPizeBox.loggedin != True:
     try:
         sc.connect()    #throws ugly error if LMS not there
-        loggedin = sc.logged_in
-        logging.debug('Logged in to LMS.')
+        RPizeBox.loggedin = sc.logged_in
+        logging.debug('Success: Logged in to LMS.')
     except:
-        logging.debug('LMS not there.  Trying again in %i seconds.' % logInWait)
+        logging.debug('LMS not there.  Trying again in %i seconds.' % RPizeBox.logInWait)
         wp.lcdPosition(lcd, 0, 0)
         wp.lcdPuts(lcd,welcomeMessage1[:16])
         wp.lcdPosition(lcd, 0, 1)
         wp.lcdPuts(lcd,welcomeMessage2[:16])        
-        time.sleep(logInWait)
+        time.sleep(RPizeBox.logInWait)
 
         
 # connected to server, now set up the player
 # we know it is the RPi because we nab the local H/W address
-sl = sc.get_player(getHwAddr("eth0"))	# http://stackoverflow.com/questions/159137/getting-mac-address
-logging.debug('Logged in to player.')
-
+try:
+    sl = sc.get_player(getHwAddr("eth0"))	# http://stackoverflow.com/questions/159137/getting-mac-address
+    logging.debug('Success: In contact with SqueezeLite.')
+except:
+    logging.warning('Can\'t contact SqueezeLite!  Check it is running')
 #######################################################################
 #                          END INITIALISE                             #
 #                                                                     #
     
 # no idea what blocking is
 pylircConfigFile = "/remoteCodes.conf"
-
+track_title = ""
 
 # start looking for remote control calls
 if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
     elapsed_time = 0
     start_time = time.time()  
-    
+        
     code = {"config" : ""}
     while(code["config"] != "quit"):
 
@@ -165,19 +193,56 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
         if(not blocking):
             # how long since we started
             elapsed_time = time.time() - start_time
+            
+            # has track has changed
+            #logging.debug('RPizeBox.current_title: %s, sl.get_track_title: %s' % (RPizeBox.current_title, sl.get_track_title()))
+            if (RPizeBox.current_title != sl.get_track_title()):
+                RPizeBox.scrollPosition = -1
+                RPizeBox.lastStepTime = time.time()
+                RPizeBox.current_title = sl.get_track_title()
+                logging.debug('Track changed, now: %s' % RPizeBox.current_title)
+                
             if (sl.get_mode() == 'play'):
+                #logging.debug('Entered if (sl.get_mode() == \'play\'): loop')
                 waitCount = 0 
                 try:
-                    #logging.debug('Elapsed time: %f' % elapsed_time)
+                    wp.lcdPosition(lcd,0,0)
+                    # scrolling code will go here
+                    track_title = sl.get_track_title()
+                    if (len(track_title) <= 16):
+                        wp.lcdPuts(lcd,(sl.get_track_title() + " "*16)[:16])
+                    else:
+                        # this is where we scroll
+                        track_title += " --- " + track_title[:16]  
+                        
+                        # cause delay if at start
+                        if (RPizeBox.scrollPosition == -1):
+                            RPizeBox.lastStepTime += RPizeBox.delayOnLoop 
+                            RPizeBox.scrollPosition = 0    
+                            wp.lcdPuts(lcd,track_title[RPizeBox.scrollPosition:16+RPizeBox.scrollPosition])
+                            wp.lcdPosition(lcd, 0, 1)
+                            wp.lcdPuts(lcd,(sl.get_track_artist() + " "*16)[:16])
+  
+                        if ((time.time() - RPizeBox.lastStepTime) > RPizeBox.scrollStepTime):
+                            wp.lcdPuts(lcd,track_title[RPizeBox.scrollPosition:16+RPizeBox.scrollPosition])
+                            RPizeBox.scrollPosition += 1
+                            RPizeBox.lastStepTime = time.time()
+                            
+                        if (len(track_title) == 16+RPizeBox.scrollPosition):
+                            #back to the start
+                            RPizeBox.scrollPosition = -1
+                         
+                    
+                    # move to second row
                     wp.lcdPosition(lcd, 0, 1)
-                    # no switch in python!
-                    if(whatToShow == 0 and elapsed_time >= bottomLineCycleDelay and elapsed_time < (bottomLineCycleDelay * 2)):
+                    # no switch in python so cycle through the bottom line based on timings
+                    if(RPizeBox.whatToShow == 0 and elapsed_time >= RPizeBox.bottomLineCycleDelay and elapsed_time < (RPizeBox.bottomLineCycleDelay * 2)):
                         wp.lcdPuts(lcd,(sl.get_track_artist() + " "*16)[:16])
                         
-                    elif(whatToShow == 1 and elapsed_time >= (bottomLineCycleDelay * 2) and elapsed_time < (bottomLineCycleDelay * 3)):
+                    elif(RPizeBox.whatToShow == 1 and elapsed_time >= (RPizeBox.bottomLineCycleDelay * 2) and elapsed_time < (RPizeBox.bottomLineCycleDelay * 3)):
                         wp.lcdPuts(lcd,(sl.get_track_album() + " "*16)[:16])
                         
-                    elif(whatToShow == 2 and  elapsed_time >= (bottomLineCycleDelay * 3) and elapsed_time < (bottomLineCycleDelay * 4)):
+                    elif(RPizeBox.whatToShow == 2 and  elapsed_time >= (RPizeBox.bottomLineCycleDelay * 3) and elapsed_time < (RPizeBox.bottomLineCycleDelay * 4)):
                         wp.lcdPosition(lcd, 0, 1)  
                         elapsed = sl.get_time_elapsed()
                         total = sl.get_track_duration()
@@ -185,15 +250,31 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                         wp.lcdPuts(lcd,">" + ">"*(progress+1)+"-"*(8-progress) + " " + str(datetime.timedelta(seconds=int(total)))[-5:])    
                         start_time = time.time()   
                         
-                    whatToShow += 1
-                    if (whatToShow == 3):
-                        whatToShow = 0
+                    RPizeBox.whatToShow += 1
+                    if (RPizeBox.whatToShow == 3):
+                        RPizeBox.whatToShow = 0
                 except:
+                    wp.lcdPosition(lcd, 0, 1)
                     wp.lcdPuts(lcd,"      -++-      "[:16])          
                 # title scrolling
+                
+            # deal with pause/stop
+            elif (sl.get_mode() == 'pause' or (sl.get_mode() == 'stop'  and sl.get_power_state())):
+                wp.lcdPosition(lcd, 0, 0)
+                wp.lcdPuts(lcd,(sl.get_track_artist() + " "*16)[:16])
+                wp.lcdPosition(lcd, 0, 1)  
+                wp.lcdPuts(lcd,("     PAUSED" + " "*16)[:16])
+                elapsed_time = time.time() - start_time
+                if (elapsed_time >= (RPizeBox.waitBeforeOffMinutes * 60)): 
+                    # send "OFF" message to player
+                    sl.set_power_state(False)
 
-
-
+            elif (sl.get_mode() == 'stop'):
+                wp.lcdPosition(lcd, 0, 1)  
+                wp.lcdPuts(lcd,"           " + time.strftime("%H:%M", time.gmtime())[:16])
+                wp.lcdPosition(lcd, 0, 0)
+                wp.lcdPuts(lcd,(datetime.datetime.now().strftime("%A") + " " + datetime.datetime.now().strftime("%d")+ " " + datetime.datetime.now().strftime("%B")[:3] + " "*16)[:16])
+                
             # Delay between reads?
             time.sleep(pylircReadDelay)
 
@@ -242,11 +323,21 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                     
                 elif(code["config"] == "Vol+"):
                     logging.debug("Vol+")
-                    sl.volume_up() 
+                    sl.volume_up()
+                    logging.debug("Volume is: " + str(sl.get_volume()))
+                    # sl.get_volume() gives integer 0-100                   
+                    wp.lcdPosition(lcd, 0, 1)
+                    wp.lcdPuts(lcd,((chr(255)*int(0.16*sl.get_volume())) + " "*16)[:16])  
+                    time.sleep(RPizeBox.flashChange)
                     
                 elif(code["config"] == "Vol-"):
                     logging.debug("Vol-")
                     sl.volume_down()
+                    logging.debug("Volume is: " + str(sl.get_volume()))
+                    # sl.get_volume() gives integer 0-100                   
+                    wp.lcdPosition(lcd, 0, 1)
+                    wp.lcdPuts(lcd,((chr(255)*int(0.16*sl.get_volume())) + " "*16)[:16]) 
+                    time.sleep(RPizeBox.flashChange)
                     
                 elif(code["config"] == "SkipForward" or code["config"] == "Tune+"):
                     logging.debug("SkipForward")
@@ -261,7 +352,7 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                 s = pylirc.nextcode(1)
             else:
                 s = []
-                
+            
         #######################################################################
         #                       END RESPOND TO REMOTE                         #
         #                                                                     #
