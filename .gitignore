@@ -37,3 +37,6 @@ nosetests.xml
 
 # compiled python
 .pyc
+
+# logs
+.log
