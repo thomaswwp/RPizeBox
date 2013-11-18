@@ -7,6 +7,11 @@ import wiringpi2 as wp		    # to control display
 #set up logging
 logging.basicConfig(filename='/home/pi/scripts/buttonwatch.log',level=logging.DEBUG,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
+#some messages          = "123456789ABCDEF0", "123456789ABCDEF0"
+shutdownMessage        = ["Shutting down...", "  ...bye bye.   "]
+rebootMessage          = ["Rebooting -     ", " Back in a mo..."]
+
+
 # set up the display - 4 bit to save pins - apparently slower but marginal
 # https://projects.drogon.net/raspberry-pi/wiringpi/lcd-library/
 wp.wiringPiSetup();
@@ -49,9 +54,9 @@ try:
                     os.system("kill $(pgrep -f RPizeBox.py)")
                     wp.lcdClear(lcd)
                     wp.lcdPosition(lcd, 0, 0)
-                    wp.lcdPuts(lcd,"Shutting down   "[:16])
+                    wp.lcdPuts(lcd,shutdownMessage[0][:16])
                     wp.lcdPosition(lcd, 0, 1)
-                    wp.lcdPuts(lcd,"    right now..."[:16]) 
+                    wp.lcdPuts(lcd,shutdownMessage[1][:16]) 
                     os.system("shutdown -h now +1")
                     break
             
@@ -61,9 +66,9 @@ try:
                 os.system("kill $(pgrep -f RPizeBox.py)")
                 wp.lcdClear(lcd)
                 wp.lcdPosition(lcd, 0, 0)
-                wp.lcdPuts(lcd,"Rebooting        "[:16])
+                wp.lcdPuts(lcd,rebootMessage[0][:16])
                 wp.lcdPosition(lcd, 0, 1)
-                wp.lcdPuts(lcd,"       right now."[:16])  
+                wp.lcdPuts(lcd,rebootMessage[1][:16])  
                 os.system("reboot")
             #break
             elif (elapsed_time > 0 and elapsed_time <= accidental):

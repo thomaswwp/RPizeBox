@@ -93,9 +93,9 @@ pylircReadDelay = 0.1               # 0.05 ~ 9% overhead
 blocking = 0;                       # no idea what this does, but in the demo code!
 configFile = "/remoteCodes.conf"    # has the codes we'll respond to
 
-#some messages          = "123456789ABCDEF0"
-welcomeMessage1         = "   Welcome to   "
-welcomeMessage2         = "TWW-P's RPizeBox"
+#some messages          = "123456789ABCDEF0", "123456789ABCDEF0"
+welcomeMessage         = ["   Welcome to   ", "TWW-P's RPizeBox"]
+
 
 
 #######################################################################
@@ -160,9 +160,9 @@ while RPizeBox.loggedin != True:
     except:
         logging.debug('LMS not there.  Trying again in %i seconds.' % RPizeBox.logInWait)
         wp.lcdPosition(lcd, 0, 0)
-        wp.lcdPuts(lcd,welcomeMessage1[:16])
+        wp.lcdPuts(lcd,welcomeMessage[0][:16])
         wp.lcdPosition(lcd, 0, 1)
-        wp.lcdPuts(lcd,welcomeMessage2[:16])        
+        wp.lcdPuts(lcd,welcomeMessage[1][:16])        
         time.sleep(RPizeBox.logInWait)
 
         
@@ -259,7 +259,7 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                 # title scrolling
                 
             # deal with pause/stop
-            elif (sl.get_mode() == 'pause' or (sl.get_mode() == 'stop'  and sl.get_power_state())):
+            elif (sl.get_mode() == 'pause' or (sl.get_mode() == 'stop' and sl.get_power_state())):
                 wp.lcdPosition(lcd, 0, 0)
                 wp.lcdPuts(lcd,(sl.get_track_artist() + " "*16)[:16])
                 wp.lcdPosition(lcd, 0, 1)  
@@ -269,7 +269,7 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                     # send "OFF" message to player
                     sl.set_power_state(False)
 
-            elif (sl.get_mode() == 'stop'):
+            elif (not sl.get_power_state()):
                 wp.lcdPosition(lcd, 0, 1)  
                 wp.lcdPuts(lcd,"           " + time.strftime("%H:%M", time.gmtime())[:16])
                 wp.lcdPosition(lcd, 0, 0)
