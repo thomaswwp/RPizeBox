@@ -33,6 +33,13 @@
 # This is the code to show the display, check whether the IR has been pressed
 # and see if we need a smooth reboot or shutdown
 #
+# 0.0.2     Initial "finished release".  
+#           Known bugs:
+#               - volume control lags
+#               - bottom line stays blank for first second
+#           Fixed?
+#               - sometimes the bottom line of the display gets stuck
+#
 # 0.0.1     Initial release, playing around with git
 #           Issues:
 #               - lirc remembers two button presses and shows the volume images 
@@ -235,14 +242,18 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                     
                     # move to second row
                     wp.lcdPosition(lcd, 0, 1)
+                    
                     # no switch in python so cycle through the bottom line based on timings
                     if(RPizeBox.whatToShow == 0 and elapsed_time >= RPizeBox.bottomLineCycleDelay and elapsed_time < (RPizeBox.bottomLineCycleDelay * 2)):
+                        # show artist
                         wp.lcdPuts(lcd,(sl.get_track_artist() + " "*16)[:16])
                         
                     elif(RPizeBox.whatToShow == 1 and elapsed_time >= (RPizeBox.bottomLineCycleDelay * 2) and elapsed_time < (RPizeBox.bottomLineCycleDelay * 3)):
+                        # show album
                         wp.lcdPuts(lcd,(sl.get_track_album() + " "*16)[:16])
                         
                     elif(RPizeBox.whatToShow == 2 and  elapsed_time >= (RPizeBox.bottomLineCycleDelay * 3) and elapsed_time < (RPizeBox.bottomLineCycleDelay * 4)):
+                        # show progress
                         wp.lcdPosition(lcd, 0, 1)  
                         elapsed = sl.get_time_elapsed()
                         total = sl.get_track_duration()
@@ -250,9 +261,16 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                         wp.lcdPuts(lcd,">" + ">"*(progress+1)+"-"*(8-progress) + " " + str(datetime.timedelta(seconds=int(total)))[-5:])    
                         start_time = time.time()   
                         
+                    elif(elapsed_time >= RPizeBox.bottomLineCycleDelay * 4):
+                        # something has gone wrong.  Maybe this is why the bottom line gets stuck
+                        logging.warning('Elapsed time unexpectedly high, resetting: %f' % elapsed_time)
+                        start_time = time.time()  
+                    
+                    # move on to the next thing
                     RPizeBox.whatToShow += 1
-                    if (RPizeBox.whatToShow == 3):
+                    if (RPizeBox.whatToShow >= 3):
                         RPizeBox.whatToShow = 0
+                        
                 except:
                     wp.lcdPosition(lcd, 0, 1)
                     wp.lcdPuts(lcd,"      -++-      "[:16])          
