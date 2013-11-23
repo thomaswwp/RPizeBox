@@ -33,6 +33,14 @@
 # This is the code to show the display, check whether the IR has been pressed
 # and see if we need a smooth reboot or shutdown
 #
+# 0.0.3     Bug Fix Release "Miley"
+#               - [New] Fixed elapsed time counting up when paused
+#               - [Old] Bottom line stays blank for first second
+
+#           Known bugs:
+#               - Volume control lags
+
+#
 # 0.0.2     Initial "finished release".  
 #           Known bugs:
 #               - volume control lags
@@ -52,7 +60,7 @@
 #######################################################################
 #                       import modules                                #
 #######################################################################
-import logging
+import logging                  # to write logs
 import wiringpi2 as wp		    # to control display - https://github.com/Gadgetoid/WiringPi2-Python
 import time, datetime           # for delays and date
 import pylirc, time             # to talk to remote control
@@ -191,7 +199,7 @@ track_title = ""
 # start looking for remote control calls
 if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
     elapsed_time = 0
-    start_time = time.time()  
+    start_time = 0 
         
     code = {"config" : ""}
     while(code["config"] != "quit"):
@@ -243,6 +251,13 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                     # move to second row
                     wp.lcdPosition(lcd, 0, 1)
                     
+                    #put something up on the first run though
+                    if (start_time == 0):
+                        start_time = time.time()
+                        elapsed_time = 0
+                        wp.lcdPuts(lcd,(sl.get_track_artist() + " "*16)[:16])
+                        RPizeBox.whatToShow == 1
+                    
                     # no switch in python so cycle through the bottom line based on timings
                     if(RPizeBox.whatToShow == 0 and elapsed_time >= RPizeBox.bottomLineCycleDelay and elapsed_time < (RPizeBox.bottomLineCycleDelay * 2)):
                         # show artist
@@ -282,12 +297,15 @@ if(pylirc.init("pylirc", currDir + pylircConfigFile, blocking)):
                 wp.lcdPuts(lcd,(sl.get_track_artist() + " "*16)[:16])
                 wp.lcdPosition(lcd, 0, 1)  
                 wp.lcdPuts(lcd,("     PAUSED" + " "*16)[:16])
-                elapsed_time = time.time() - start_time
+                elapsed_time = 0
+                start_time = 0
                 if (elapsed_time >= (RPizeBox.waitBeforeOffMinutes * 60)): 
                     # send "OFF" message to player
                     sl.set_power_state(False)
 
             elif (not sl.get_power_state()):
+                elapsed_time = 0
+                start_time = 0
                 wp.lcdPosition(lcd, 0, 1)  
                 wp.lcdPuts(lcd,"           " + time.strftime("%H:%M", time.gmtime())[:16])
                 wp.lcdPosition(lcd, 0, 0)
